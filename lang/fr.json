@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Objets Cachés (MJ uniquement)",
+            "ClearList": "Effacer la liste",
+            "ConfirmClear": {
+                "Title": "Effacer la liste des objets cachés",
+                "Content": "Êtes-vous sûr de vouloir effacer la liste des objets cachés ? Cette action ne peut pas être annulée."
+            },
+            "Notifications": {
+                "ListCleared": "La liste des objets cachés a été effacée.",
+                "AlreadyHidden": "{itemName} est déjà dans la liste des objets cachés."
+            }
+        }
+    }
+}

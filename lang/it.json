@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Oggetti Nascosti (Solo GM)",
+            "ClearList": "Cancella Lista",
+            "ConfirmClear": {
+                "Title": "Cancella Lista Oggetti Nascosti",
+                "Content": "Sei sicuro di voler cancellare la lista degli oggetti nascosti? Questa azione non può essere annullata."
+            },
+            "Notifications": {
+                "ListCleared": "La lista degli oggetti nascosti è stata cancellata.",
+                "AlreadyHidden": "{itemName} è già nella lista degli oggetti nascosti."
+            }
+        }
+    }
+}

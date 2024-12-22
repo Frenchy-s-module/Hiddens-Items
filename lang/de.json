@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Versteckte Gegenstände (nur SL)",
+            "ClearList": "Liste leeren",
+            "ConfirmClear": {
+                "Title": "Liste der versteckten Gegenstände leeren",
+                "Content": "Sind Sie sicher, dass Sie die Liste der versteckten Gegenstände leeren möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+            },
+            "Notifications": {
+                "ListCleared": "Die Liste der versteckten Gegenstände wurde geleert.",
+                "AlreadyHidden": "{itemName} ist bereits in der Liste der versteckten Gegenstände."
+            }
+        }
+    }
+}

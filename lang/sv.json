@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Dolda Föremål (Endast SL)",
+            "ClearList": "Rensa Lista",
+            "ConfirmClear": {
+                "Title": "Rensa Lista över Dolda Föremål",
+                "Content": "Är du säker på att du vill rensa listan över dolda föremål? Denna åtgärd kan inte ångras."
+            },
+            "Notifications": {
+                "ListCleared": "Listan över dolda föremål har rensats.",
+                "AlreadyHidden": "{itemName} finns redan i listan över dolda föremål."
+            }
+        }
+    }
+}

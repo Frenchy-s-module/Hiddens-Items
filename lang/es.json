@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Objetos Ocultos (Solo DJ)",
+            "ClearList": "Borrar Lista",
+            "ConfirmClear": {
+                "Title": "Borrar Lista de Objetos Ocultos",
+                "Content": "¿Estás seguro de que quieres borrar la lista de objetos ocultos? Esta acción no se puede deshacer."
+            },
+            "Notifications": {
+                "ListCleared": "La lista de objetos ocultos ha sido borrada.",
+                "AlreadyHidden": "{itemName} ya está en la lista de objetos ocultos."
+            }
+        }
+    }
+}

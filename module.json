@@ -1,0 +1,66 @@
+{
+  "id": "Hidden_Items",
+  "title": "Hidden Items",
+  "description": "A Foundry VTT module that allows GMs to hide items from character sheets and manage them privately. Items can be easily hidden and revealed, with a convenient interface for managing hidden items. Perfect for secret items, quest objects, or any items that should be temporarily hidden from players.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Shaz"
+    }
+  ],
+  "scripts": [
+    "scripts/main.js"
+  ],
+  "styles": ["styles/main.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    },
+    {
+      "lang": "da",
+      "name": "Dansk",
+      "path": "lang/da.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "lang/it.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "no",
+      "name": "Norsk",
+      "path": "lang/no.json"
+    },
+    {
+      "lang": "sv",
+      "name": "Svenska",
+      "path": "lang/sv.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Hidden Items (GM Only)",
+            "ClearList": "Clear List",
+            "ConfirmClear": {
+                "Title": "Clear Hidden Items List",
+                "Content": "Are you sure you want to clear the hidden items list? This action cannot be undone."
+            },
+            "Notifications": {
+                "ListCleared": "The hidden items list has been cleared.",
+                "AlreadyHidden": "{itemName} is already in the hidden items list."
+            }
+        }
+    }
+}

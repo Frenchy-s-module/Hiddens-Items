@@ -1,0 +1,16 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Skjulte Genstande (Kun SL)",
+            "ClearList": "Ryd Liste",
+            "ConfirmClear": {
+                "Title": "Ryd Liste over Skjulte Genstande",
+                "Content": "Er du sikker på, at du vil rydde listen over skjulte genstande? Denne handling kan ikke fortrydes."
+            },
+            "Notifications": {
+                "ListCleared": "Listen over skjulte genstande er blevet ryddet.",
+                "AlreadyHidden": "{itemName} er allerede på listen over skjulte genstande."
+            }
+        }
+    }
+}
