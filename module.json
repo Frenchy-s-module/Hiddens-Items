@@ -9,7 +9,7 @@
   },
   "authors": [
     {
-      "name": "Shaz"
+      "name": "Shaz for Frenchy's Module"
     }
   ],
   "scripts": [
@@ -62,5 +62,8 @@
       "name": "Português (Brasil)",
       "path": "lang/pt-BR.json"
     }
-  ]
+  ],
+  "url": "https://github.com/Frenchy-s-module/Hiddens_Items",
+  "manifest": "https://github.com/Frenchy-s-module/Hiddens_Items/releases/download/V1.0.0/module.json",
+  "download": "https://github.com/Frenchy-s-module/Hiddens_Items/releases/download/V1.0.0/Hidden_Items.zip"
 }
