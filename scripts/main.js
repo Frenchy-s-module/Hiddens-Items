@@ -1,11 +1,36 @@
+class HiddenItemsGitHubLink extends FormApplication {
+    static get defaultOptions() {
+        return mergeObject(super.defaultOptions, {
+            id: "hidden-items-github-link",
+            title: "GitHub",
+            template: "templates/settings/menu.html"
+        });
+    }
+
+    render() {
+        window.open("https://github.com/Frenchy-s-module/Hiddens-Items", "_blank");
+        return null;
+    }
+}
+
 class HiddenItemsManager {
-    static ID = 'Hidden_Items';
+    static ID = 'Hidden-Items';
     
     static FLAGS = {
         HIDDEN_ITEMS: 'hiddenItems'
     };
 
     static initialize() {
+        // Ajout du lien vers GitHub
+        game.settings.registerMenu("Hidden-Items", "githubLink", {
+            name: "GitHub",
+            label: "GitHub",
+            hint: "Visit the module's GitHub page",
+            icon: "fab fa-github",
+            type: HiddenItemsGitHubLink,
+            restricted: false
+        });
+
         Hooks.once('init', () => {
             game.modules.get(this.ID).api = {
                 hideItem: this.hideItem.bind(this),
@@ -99,7 +124,7 @@ class HiddenItemsManager {
 
                 const hiddenList = hiddenSection.find('.item-list');
                 
-                // Ajouter le gestionnaire d'événements pour le bouton d'effacement
+                // Ajouter le gestionnaire d'événement pour le bouton d'effacement
                 hiddenSection.find('.clear-hidden-items').click(async (event) => {
                     event.preventDefault();
                     await this.clearHiddenItems(app.actor);
@@ -167,6 +192,40 @@ class HiddenItemsManager {
                         windowContent.append(newContainer);
                     }
                 }
+            }
+        });
+
+        Hooks.on('renderModuleManagement', (app, html, data) => {
+            // Trouver la section de notre module
+            const moduleId = 'Hidden_Items';
+            const moduleSection = html.find(`div[data-module-id="${moduleId}"]`);
+            
+            if (moduleSection.length) {
+                // Créer le bouton GitHub
+                const githubButton = $(`
+                    <button type="button" class="github-button">
+                        <i class="fab fa-github"></i> GitHub
+                    </button>
+                `);
+                
+                // Ajouter le style au bouton
+                githubButton.css({
+                    'margin-left': '10px',
+                    'background': '#24292e',
+                    'color': 'white',
+                    'border': 'none',
+                    'padding': '5px 10px',
+                    'border-radius': '3px',
+                    'cursor': 'pointer'
+                });
+                
+                // Ajouter l'événement de clic
+                githubButton.on('click', () => {
+                    window.open('https://github.com/Frenchy-s-module/Hiddens_Items', '_blank');
+                });
+                
+                // Ajouter le bouton à côté du titre du module
+                moduleSection.find('h3').append(githubButton);
             }
         });
     }
