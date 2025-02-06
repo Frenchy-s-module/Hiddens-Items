@@ -3,7 +3,19 @@
 ![Version](https://img.shields.io/badge/version-1.0.0-blue)
 ![Foundry](https://img.shields.io/badge/Foundry-v12-green)
 
-[English](#english) | [Français](#français)
+## Languages / Langues / Sprachen / Idiomas / Lingue / Språk
+
+[![English][en-flag]](#english) [![Français][fr-flag]](#français) [![Deutsch][de-flag]](#deutsch) [![Español][es-flag]](#español) [![Italiano][it-flag]](#italiano) [![Dansk][da-flag]](#dansk) [![Norsk][no-flag]](#norsk) [![Svenska][sv-flag]](#svenska) [![Português Brasileiro][pt-br-flag]](#português-brasileiro)
+
+[en-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/gb.svg
+[fr-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/fr.svg
+[de-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/de.svg
+[es-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/es.svg
+[it-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/it.svg
+[da-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/dk.svg
+[no-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/no.svg
+[sv-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/se.svg
+[pt-br-flag]: https://raw.githubusercontent.com/lipis/flag-icons/main/flags/4x3/br.svg
 
 <a name="english"></a>
 ## Description
