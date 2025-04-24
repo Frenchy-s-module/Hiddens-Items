@@ -78,7 +78,7 @@ class HiddenItemsPopup extends FormApplication {
         return foundry.utils.mergeObject(super.defaultOptions, {
             id: "hidden-items-popup",
             title: game.i18n.localize("A-OMEGA.HiddenItems.Popup.title"),
-            template: "modules/hidden-items/templates/popup.html",
+            template: "modules/Hidden-Items/templates/popup.html",
             width: 400,
             height: "auto",
             resizable: true,
@@ -208,11 +208,11 @@ Hooks.on('renderActorSheet', (app, html, data) => {
     // Empêcher doublons
     if ($header.find('.hidden-items-header-btn').length) return;
     // Créer le bouton
-    const btn = $(`
-        <a class="hidden-items-header-btn" title="${game.i18n.localize('A-OMEGA.HiddenItems.HeaderButton')}" style="margin-right:10px;display:inline-flex;align-items:center;gap:4px;">
-            <i class="fas fa-lock"></i> <span>${game.i18n.localize('A-OMEGA.HiddenItems.HeaderButton')}</span>
-        </a>
-    `);
+    const btn = $(
+        `<a class="hidden-items-header-btn" title="${game.i18n.localize('A-OMEGA.HiddenItems.HeaderButton')}" style="margin-right:10px;display:inline-flex;align-items:center;gap:4px;">
+            <i class="fas fa-eye icon-eye-visible"></i>
+        </a>`
+    );
     btn.on('click', ev => {
         ev.preventDefault();
         ev.stopPropagation();
