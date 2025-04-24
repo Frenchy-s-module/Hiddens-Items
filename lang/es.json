@@ -2,6 +2,12 @@
     "A-OMEGA": {
         "HiddenItems": {
             "Title": "Objetos Ocultos (Solo DJ)",
+            "HeaderButton":"Objetos Ocultos",
+            "deleteLabel": "Eliminar permanentemente",
+            "ConfirmDelete": {
+                "Title": "Eliminar Objetos Ocultos",
+                "Content": "¿Estás seguro de que quieres eliminar este objeto oculto? Esta acción no se puede deshacer."
+            },
             "ClearList": "Borrar Lista",
             "ConfirmClear": {
                 "Title": "Borrar Lista de Objetos Ocultos",
@@ -21,7 +27,8 @@
                 "ListCleared": "La lista de objetos ocultos ha sido borrada.",
                 "AlreadyHidden": "{itemName} ya está en la lista de objetos ocultos.",
                 "ItemShown": "{itemName} ha sido mostrado.",
-                "ItemHidden": "{itemName} ha sido ocultado."
+                "ItemHidden": "{itemName} ha sido ocultado.",
+                "ItemDeleted": "El objeto oculto ha sido eliminado permanentemente."
             }
         }
     }

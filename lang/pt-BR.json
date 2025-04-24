@@ -2,6 +2,12 @@
     "A-OMEGA": {
         "HiddenItems": {
             "Title": "Itens Ocultos (Apenas Mestre)",
+            "HeaderButton":"Itens Ocultos",
+            "deleteLabel": "Eliminar permanentemente",
+            "ConfirmDelete": {
+                "Title": "Eliminar Itens Ocultos",
+                "Content": "Tem certeza de que deseja eliminar este item oculto? Esta ação não pode ser desfeita."
+            },
             "ClearList": "Limpar Lista",
             "ConfirmClear": {
                 "Title": "Limpar Lista de Itens Ocultos",
@@ -22,7 +28,8 @@
                 "ListCleared": "A lista de itens ocultos foi limpa.",
                 "AlreadyHidden": "{itemName} já está na lista de itens ocultos.",
                 "ItemShown": "{itemName} foi mostrado.",
-                "ItemHidden": "{itemName} foi ocultado."
+                "ItemHidden": "{itemName} foi ocultado.",
+                "ItemDeleted": "O item oculto foi eliminado permanentemente."
             }
         }
     }

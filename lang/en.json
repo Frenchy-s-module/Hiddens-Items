@@ -2,7 +2,13 @@
     "A-OMEGA": {
         "HiddenItems": {
             "Title": "Hidden Items (GM Only)",
+            "HeaderButton":"Hidden Items",
             "ClearList": "Clear List",
+            "deleteLabel": "Delete permanently",
+            "ConfirmDelete": {
+                "Title": "Delete Hidden Item",
+                "Content": "Are you sure you want to delete this hidden item? This action cannot be undone."
+            },
             "ConfirmClear": {
                 "Title": "Clear Hidden Items List",
                 "Content": "Are you sure you want to clear the hidden items list? This action cannot be undone."
@@ -12,10 +18,10 @@
                 "ListCleared": "The hidden items list has been cleared.",
                 "AlreadyHidden": "{itemName} is already in the hidden items list.",
                 "ItemShown": "{itemName} has been shown.",
-                "ItemHidden": "{itemName} has been hidden."
+                "ItemHidden": "{itemName} has been hidden.",
+                "ItemDeleted": "The hidden item has been deleted permanently."
             },
-            "HeaderButton": "Hidden Items",
-      "Popup": {
+            "Popup": {
                 "Hide": "Hide",
                 "title": "Hidden Items",
                 "Show": "Show",

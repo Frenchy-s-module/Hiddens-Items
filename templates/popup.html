@@ -23,18 +23,26 @@
     </ul>
   </div>
   <div class="hidden-items-section">
-    <h3>{{hiddenLabel}}</h3>
+    <h3 style="display:flex;align-items:center;justify-content:space-between;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+      <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{hiddenLabel}}</span>
+      <button type="button" class="clear-hidden-items-btn" title="{{clearListLabel}}" style="background:none;border:none;width:32px;height:32px;min-width:0;min-height:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+        <i class="fas fa-trash" style="color:#c00;font-size:1em;"></i>
+      </button>
+    </h3>
     <ul class="hidden-items-list" style="padding:0; margin:0; list-style:none;">
       {{#if hiddenItems.length}}
         {{#each hiddenItems}}
         <li class="hidden-item-row" style="display: flex; align-items: center; gap: 8px;">
-          <img src="{{img}}" width="32" height="32" style="vertical-align:middle;">
-          <span style="flex:1 1 auto; white-space:normal;">{{name}}</span>
-          <div style="flex:0 0 36px; display:flex; justify-content:center; align-items:center;">
-            <button type="button" class="show-item" data-item-id="{{id}}" title="{{../hiddenLabel}}" style="width:32px;height:32px;display:flex;justify-content:center;align-items:center;padding:0;background:none;border:none;">
-              <i class="fas fa-eye icon-eye-visible"></i>
-            </button>
-          </div>
+	<img src="{{img}}" width="32" height="32" style="vertical-align:middle;">
+	<span style="flex:1 1 auto; white-space:normal;">{{name}}</span>
+	<div style="display:flex; gap:4px; align-items:center;">
+		<button type="button" class="show-item" data-item-id="{{id}}" title="{{../hiddenLabel}}" style="width:32px;height:32px;display:flex;justify-content:center;align-items:center;padding:0;background:none;border:none;">
+			<i class="fas fa-eye icon-eye-visible"></i>
+		</button>
+		<button type="button" class="delete-hidden-item-btn" data-item-id="{{id}}" title="{{../deleteLabel}}" style="width:32px;height:32px;display:flex;justify-content:center;align-items:center;padding:0;background:none;border:none;">
+			<i class="fas fa-trash" style="color:#c00;font-size:1em;"></i>
+		</button>
+	</div>
         </li>
         {{/each}}
       {{else}}

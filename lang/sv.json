@@ -2,6 +2,12 @@
     "A-OMEGA": {
         "HiddenItems": {
             "Title": "Dolda Föremål (Endast SL)",
+            "HeaderButton":"Dolda Föremål",
+            "deleteLabel": "Ta bort permanent",
+            "ConfirmDelete": {
+                "Title": "Ta bort Dolda Föremål",
+                "Content": "Är du säker på att du vill ta bort denna dolda föremål? Denna åtgärd kan inte ångras."
+            },
             "ClearList": "Rensa Lista",
             "ConfirmClear": {
                 "Title": "Rensa Lista över Dolda Föremål",
@@ -22,7 +28,8 @@
                 "ListCleared": "Listan över dolda föremål har rensats.",
                 "AlreadyHidden": "{itemName} finns redan i listan över dolda föremål.",
                 "ItemShown": "{itemName} har blitt visad.",
-                "ItemHidden": "{itemName} har blitt dold."
+                "ItemHidden": "{itemName} har blitt dold.",
+                "ItemDeleted": "Den dolda föremålet har blitt tagen bort permanent."
             }
         }
     }

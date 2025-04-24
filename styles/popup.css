@@ -20,6 +20,31 @@
   box-shadow: 0 2px 8px rgba(40,40,40,0.07);
 }
 .hidden-items-popup h2 {
+}
+.clear-hidden-items-btn {
+  margin-left: 8px;
+  background: none;
+  border: none;
+  padding: 0 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  border-radius: 4px;
+}
+.clear-hidden-items-btn:hover {
+  background: #ffeaea;
+}
+.clear-hidden-items-btn i {
+  color: #c00;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+.clear-hidden-items-btn:hover i {
+  color: #a00;
+}
+.hidden-items-popup h2 {
   color: var(--hidden-popup-title);
   font-size: 1.2em;
   margin-bottom: 10px;

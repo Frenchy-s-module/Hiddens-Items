@@ -2,6 +2,12 @@
     "A-OMEGA": {
         "HiddenItems": {
             "Title": "Oggetti Nascosti (Solo GM)",
+            "HeaderButton":"Oggetti Nascosti",
+            "deleteLabel": "Elimina permanentemente",
+            "ConfirmDelete": {
+                "Title": "Elimina Oggetti Nascosti",
+                "Content": "Sei sicuro di voler eliminare questo oggetto nascosto? Questa azione non può essere annullata."
+            },
             "ClearList": "Cancella Lista",
             "ConfirmClear": {
                 "Title": "Cancella Lista Oggetti Nascosti",
@@ -21,7 +27,8 @@
                 "ListCleared": "La lista degli oggetti nascosti è stata cancellata.",
                 "AlreadyHidden": "{itemName} è già nella lista degli oggetti nascosti.",
                 "ItemShown": "{itemName} è stato mostrato.",
-                "ItemHidden": "{itemName} è stato nascosto."
+                "ItemHidden": "{itemName} è stato nascosto.",
+                "ItemDeleted": "L'oggetto nascosto è stato eliminato permanentemente."
             }
         }
     }

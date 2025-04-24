@@ -2,7 +2,13 @@
     "A-OMEGA": {
         "HiddenItems": {
             "Title": "Skjulte Genstande (Kun SL)",
+            "HeaderButton":"Skjulte Genstande",
             "ClearList": "Ryd Liste",
+            "deleteLabel": "Slet permanent",
+            "ConfirmDelete": {
+                "Title": "Slet Skjulte Genstande",
+                "Content": "Er du sikker på, at du vil slette denne skjulte genstande? Denne handling kan ikke fortrydes."
+            },
             "ConfirmClear": {
                 "Title": "Ryd Liste over Skjulte Genstande",
                 "Content": "Er du sikker på, at du vil rydde listen over skjulte genstande? Denne handling kan ikke fortrydes."
@@ -21,7 +27,8 @@
                 "ListCleared": "Listen over skjulte genstande er blevet ryddet.",
                 "AlreadyHidden": "{itemName} er allerede på listen over skjulte genstande.",
                 "ItemShown": "{itemName} er blevet vist.",
-                "ItemHidden": "{itemName} er blevet skjult."
+                "ItemHidden": "{itemName} er blevet skjult.",
+                "ItemDeleted": "Den skjulte genstande er blevet slettet permanent."
             }
         }
     }

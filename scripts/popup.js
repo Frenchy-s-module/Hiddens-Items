@@ -3,10 +3,13 @@ console.log('[Hidden-Items] popup.js chargé et exécuté');
 // Classe pour la popup de gestion des objets cachés
 class HiddenItemsPopup extends FormApplication {
     constructor(actor, options = {}) {
+        // Crée un titre dynamique incluant le nom de l'acteur
+        const dynamicTitle = `${game.i18n.localize("A-OMEGA.HiddenItems.Popup.title")} – ${actor.name}`;
         // Injecte un id unique par acteur pour permettre plusieurs popups
         options = {
             ...options,
-            id: `hidden-items-popup-${actor.id}`
+            id: `hidden-items-popup-${actor.id}`,
+            title: dynamicTitle
         };
         super(actor, options);
         this.actor = actor;
@@ -82,7 +85,7 @@ class HiddenItemsPopup extends FormApplication {
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
             // L'id sera injecté dynamiquement dans le constructeur pour chaque acteur
-            title: game.i18n.localize("A-OMEGA.HiddenItems.Popup.title"),
+            // title: game.i18n.localize("A-OMEGA.HiddenItems.Popup.title"),
             template: "modules/Hidden-Items/templates/popup.html",
             width: 400,
             height: "auto",
@@ -128,11 +131,13 @@ class HiddenItemsPopup extends FormApplication {
             popupTitle: game.i18n.localize("A-OMEGA.HiddenItems.Popup.title"),
             visibleLabel: game.i18n.localize("A-OMEGA.HiddenItems.Popup.VisibleLabel"),
             hiddenLabel: game.i18n.localize("A-OMEGA.HiddenItems.Popup.HiddenLabel"),
+            clearListLabel: game.i18n.localize("A-OMEGA.HiddenItems.ClearList"),
             noVisibleItemsLabel: game.i18n.localize("A-OMEGA.HiddenItems.Popup.NoVisibleItems"),
             noHiddenItemsLabel: game.i18n.localize("A-OMEGA.HiddenItems.Popup.NoHiddenItems"),
             visibleItems,
             hiddenItems,
-            isGM: game.user.isGM
+            isGM: game.user.isGM,
+            actorName: this.actor.name
         };
     }
 
@@ -151,6 +156,44 @@ class HiddenItemsPopup extends FormApplication {
             ev.stopPropagation();
             const itemId = ev.currentTarget.dataset.itemId;
             await HiddenItemsManager.showItem(this.actor, itemId);
+        });
+        // Gestion du bouton poubelle pour supprimer un objet caché individuellement
+        html.find(".delete-hidden-item-btn").click(async ev => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            const itemId = ev.currentTarget.dataset.itemId;
+            const confirmed = await Dialog.confirm({
+                title: game.i18n.localize("A-OMEGA.HiddenItems.ConfirmDelete.Title"),
+                content: game.i18n.localize("A-OMEGA.HiddenItems.ConfirmDelete.Content"),
+                yes: () => true,
+                no: () => false,
+                defaultYes: false
+            });
+            if (!confirmed) return;
+            // Suppression côté storage
+            let hiddenData = foundry.utils.duplicate(HiddenItemsStorage.getHiddenItems(this.actor.id));
+            delete hiddenData[itemId];
+            await HiddenItemsStorage.setHiddenItems(this.actor.id, hiddenData);
+            Hooks.callAll('hiddenItemsUpdated', this.actor.id, hiddenData);
+            this.render(true, {keepId:true});
+            ui.notifications.info(game.i18n.localize("A-OMEGA.HiddenItems.Notifications.ItemDeleted"));
+        });
+        // Gestion du bouton poubelle pour vider tous les objets cachés
+        html.find(".clear-hidden-items-btn").click(async ev => {
+            ev.preventDefault();
+            ev.stopPropagation();
+            const confirmed = await Dialog.confirm({
+                title: game.i18n.localize("A-OMEGA.HiddenItems.ConfirmClear.Title"),
+                content: game.i18n.localize("A-OMEGA.HiddenItems.ConfirmClear.Content"),
+                yes: () => true,
+                no: () => false,
+                defaultYes: false
+            });
+            if (!confirmed) return;
+            await HiddenItemsStorage.clearHiddenItems(this.actor.id);
+            Hooks.callAll('hiddenItemsUpdated', this.actor.id, {});
+            this.render(true, {keepId:true});
+            ui.notifications.info(game.i18n.localize("A-OMEGA.HiddenItems.Notifications.ListCleared"));
         });
     }
 
@@ -204,8 +247,8 @@ Hooks.on('renderActorSheet', (app, html, data) => {
     if ($header.find('.hidden-items-header-btn').length) return;
     // Créer le bouton
     const btn = $(
-        `<a class="hidden-items-header-btn" title="${game.i18n.localize('A-OMEGA.HiddenItems.HeaderButton')}" style="margin-right:10px;display:inline-flex;align-items:center;gap:4px;">
-            <i class="fas fa-eye icon-eye-visible"></i>
+        `<a class="hidden-items-header-btn" title="${game.i18n.localize('A-OMEGA.HiddenItems.HeaderButton')}" style="margin-right:6px;cursor:pointer;">
+            <i class="fas fa-eye-slash icon-eye-hidden" style="color:#c00;"></i>
         </a>`
     );
     btn.on('click', ev => {
