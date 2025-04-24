@@ -1,0 +1,28 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Objets Cachés (MJ uniquement)",
+            "ClearList": "Effacer la liste",
+            "ConfirmClear": {
+                "Title": "Effacer la liste des objets cachés",
+                "Content": "Êtes-vous sûr de vouloir effacer la liste des objets cachés ? Cette action ne peut pas être annulée."
+            },
+            "HeaderButton": "Objets cachés",
+      "Popup": {
+                "Hide": "Cacher",
+                "title": "Objets Cachés",
+                "Show": "Afficher",
+                "VisibleLabel": "Objets visibles",
+                "HiddenLabel": "Objets cachés",
+                "NoVisibleItems": "Aucun objet visible",
+                "NoHiddenItems": "Aucun objet caché"
+                
+                       },
+        "Notifications": {
+            "LibWrapperRequired": "Le module libWrapper est requis pour que Hidden Items fonctionne correctement. Veuillez l'installer et l'activer." ,
+                "ListCleared": "La liste des objets cachés a été effacée.",
+                "AlreadyHidden": "{itemName} est déjà dans la liste des objets cachés."
+            }
+        }
+    }
+}

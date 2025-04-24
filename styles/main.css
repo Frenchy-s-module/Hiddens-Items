@@ -1,0 +1,126 @@
+.hidden-items-section {
+    background: rgba(0, 0, 0, 0.1);
+    border: 1px solid #666;
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.hidden-items-section h3 {
+    border-bottom: 2px solid #666;
+    color: rgb(255, 255, 255);
+    background: rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.hidden-items-section h3 span {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.hidden-items-section h3 span::before {
+    content: '\f070';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    color: #ffd700;
+}
+
+.hidden-items-section .clear-hidden-items {
+    background: #dc3545;
+    color: rgb(255, 255, 255);
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-shadow: none;
+}
+
+.hidden-items-section .clear-hidden-items:hover {
+    background: #c82333;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.hidden-items-section .item-list {
+    background: rgba(233, 175, 175, 0.9);
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.hidden-items-section .hidden-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    margin: 2px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.hidden-items-section .hidden-item:hover {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.hidden-items-section .item-name {
+    color: #111;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.hidden-items-section .item-controls {
+    display: flex;
+    gap: 5px;
+}
+
+.item-toggle {
+    color: #666 !important;
+    background: transparent;
+    border: 1px solid #666;
+    border-radius: 3px;
+    padding: 2px 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.item-toggle:hover {
+    color: #111 !important;
+    background: transparent;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+
+.item-toggle .fa-eye {
+    color: #dc3545;
+}
+
+.item-toggle .fa-eye-slash {
+    color: #28a745;
+}
+
+/* Force la couleur du texte pour éviter les problèmes de contraste */
+.item .item-name {
+    color: #111 !important;
+    text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.github-button {
+    transition: background-color 0.3s ease;
+}
+
+.github-button:hover {
+    background-color: #3a3f46 !important;
+}
+
+.github-button i {
+    margin-right: 5px;
+}

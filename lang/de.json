@@ -1,0 +1,27 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Versteckte Gegenstände (nur SL)",
+            "ClearList": "Liste leeren",
+            "ConfirmClear": {
+                "Title": "Liste der versteckten Gegenstände leeren",
+                "Content": "Sind Sie sicher, dass Sie die Liste der versteckten Gegenstände leeren möchten? Diese Aktion kann nicht rückgängig gemacht werden."
+            },
+            "Popup": {
+            "Hide": "Verbergen",
+            "title": "Versteckte Gegenstände",
+            "Show": "Anzeigen",
+            "VisibleLabel": "Sichtbare Gegenstände",
+            "HiddenLabel": "Versteckte Gegenstände",
+            "NoVisibleItems": "Keine sichtbaren Gegenstände",
+            "NoHiddenItems": "Keine versteckten Gegenstände"
+            
+        },
+        "Notifications": {
+            "LibWrapperRequired": "Das Modul libWrapper ist erforderlich, damit Hidden Items ordnungsgemäß funktioniert. Bitte installieren und aktivieren Sie es.",
+                "ListCleared": "Die Liste der versteckten Gegenstände wurde geleert.",
+                "AlreadyHidden": "{itemName} ist bereits in der Liste der versteckten Gegenstände."
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Skjulte Genstande (Kun SL)",
+            "ClearList": "Ryd Liste",
+            "ConfirmClear": {
+                "Title": "Ryd Liste over Skjulte Genstande",
+                "Content": "Er du sikker på, at du vil rydde listen over skjulte genstande? Denne handling kan ikke fortrydes."
+            },
+            "Popup": {
+                "Hide": "Skjul",
+                "Title": "Skjulte Genstande",
+                "Show": "Vis",
+                "VisibleLabel": "Synlige genstande",
+                "HiddenLabel": "Skjulte genstande",
+                "NoVisibleItems": "Ingen synlige genstande",
+                "NoHiddenItems": "Ingen skjulte genstande"
+            },
+            "Notifications": {
+            "LibWrapperRequired": "Modulet libWrapper er påkrævet for at Hidden Items fungerer korrekt. Installer og aktiver det venligst.",
+                "ListCleared": "Listen over skjulte genstande er blevet ryddet.",
+                "AlreadyHidden": "{itemName} er allerede på listen over skjulte genstande."
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+<form class="hidden-items-popup">
+  <h2>{{popupTitle}}</h2>
+  <div class="hidden-items-section">
+    <h3>{{visibleLabel}}</h3>
+    <ul class="visible-items-list" style="padding:0; margin:0; list-style:none;">
+      {{#if visibleItems.length}}
+        {{#each visibleItems}}
+        <li class="visible-item-row" style="display: flex; align-items: center; gap: 8px;">
+          <img src="{{img}}" width="32" height="32" style="vertical-align:middle;">
+          <span style="flex:1 1 auto; white-space:normal;">{{name}}</span>
+          <div style="flex:0 0 36px; display:flex; justify-content:center; align-items:center;">
+            <button type="button" class="hide-item" data-item-id="{{id}}" title="{{../visibleLabel}}" style="width:32px;height:32px;display:flex;justify-content:center;align-items:center;padding:0;background:none;border:none;">
+              <i class="fas fa-eye-slash icon-eye-hidden"></i>
+            </button>
+          </div>
+        </li>
+        {{/each}}
+      {{else}}
+        <li style="padding:1em;text-align:center;color:#888;">
+          {{noVisibleItemsLabel}}
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+  <div class="hidden-items-section">
+    <h3>{{hiddenLabel}}</h3>
+    <ul class="hidden-items-list" style="padding:0; margin:0; list-style:none;">
+      {{#if hiddenItems.length}}
+        {{#each hiddenItems}}
+        <li class="hidden-item-row" style="display: flex; align-items: center; gap: 8px;">
+          <img src="{{img}}" width="32" height="32" style="vertical-align:middle;">
+          <span style="flex:1 1 auto; white-space:normal;">{{name}}</span>
+          <div style="flex:0 0 36px; display:flex; justify-content:center; align-items:center;">
+            <button type="button" class="show-item" data-item-id="{{id}}" title="{{../hiddenLabel}}" style="width:32px;height:32px;display:flex;justify-content:center;align-items:center;padding:0;background:none;border:none;">
+              <i class="fas fa-eye icon-eye-visible"></i>
+            </button>
+          </div>
+        </li>
+        {{/each}}
+      {{else}}
+        <li style="padding:1em;text-align:center;color:#888;">
+          {{noHiddenItemsLabel}}
+        </li>
+      {{/if}}
+    </ul>
+  </div>
+</form>
