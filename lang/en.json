@@ -10,7 +10,9 @@
             "Notifications": {
             "LibWrapperRequired": "The libWrapper module is required for Hidden Items to function properly. Please install and activate it.",
                 "ListCleared": "The hidden items list has been cleared.",
-                "AlreadyHidden": "{itemName} is already in the hidden items list."
+                "AlreadyHidden": "{itemName} is already in the hidden items list.",
+                "ItemShown": "{itemName} has been shown.",
+                "ItemHidden": "{itemName} has been hidden."
             },
             "HeaderButton": "Hidden Items",
       "Popup": {

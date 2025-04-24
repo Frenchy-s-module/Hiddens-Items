@@ -191,7 +191,7 @@ window.HiddenItemsManager = class HiddenItemsManager {
         // --- FIN HOOK PERSONNALISÉ ---
         // Supprimer l'objet de la fiche
         await actor.deleteEmbeddedDocuments("Item", [itemId]);
-        ui.notifications.info(game.i18n.localize("A-OMEGA.HiddenItems.Notifications.ItemHidden"));
+        ui.notifications.info(game.i18n.format("A-OMEGA.HiddenItems.Notifications.ItemHidden", { itemName: item.name }));
         // --- RÉTABLIR LE RENDU DE LA FICHE ---
         for (const app of Object.values(actor.apps)) {
     if (app.rendered) app.render(true);
@@ -243,7 +243,7 @@ window.HiddenItemsManager = class HiddenItemsManager {
             console.log(`[Hidden-Items][showItem] Données après setHiddenItems :`, dataAfter);
             console.log(`[Hidden-Items][showItem] --- FIN ---`);
         }
-        ui.notifications.info(game.i18n.localize("A-OMEGA.HiddenItems.Notifications.ItemShown"));
+        ui.notifications.info(game.i18n.format("A-OMEGA.HiddenItems.Notifications.ItemShown", { itemName: itemData.name }));
         // --- RÉTABLIR LE RENDU DE LA FICHE ---
         for (const app of Object.values(actor.apps)) {
     if (app.rendered) app.render(true);

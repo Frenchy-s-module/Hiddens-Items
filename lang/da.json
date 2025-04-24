@@ -19,7 +19,9 @@
             "Notifications": {
             "LibWrapperRequired": "Modulet libWrapper er påkrævet for at Hidden Items fungerer korrekt. Installer og aktiver det venligst.",
                 "ListCleared": "Listen over skjulte genstande er blevet ryddet.",
-                "AlreadyHidden": "{itemName} er allerede på listen over skjulte genstande."
+                "AlreadyHidden": "{itemName} er allerede på listen over skjulte genstande.",
+                "ItemShown": "{itemName} er blevet vist.",
+                "ItemHidden": "{itemName} er blevet skjult."
             }
         }
     }

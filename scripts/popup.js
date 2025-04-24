@@ -3,6 +3,11 @@ console.log('[Hidden-Items] popup.js chargé et exécuté');
 // Classe pour la popup de gestion des objets cachés
 class HiddenItemsPopup extends FormApplication {
     constructor(actor, options = {}) {
+        // Injecte un id unique par acteur pour permettre plusieurs popups
+        options = {
+            ...options,
+            id: `hidden-items-popup-${actor.id}`
+        };
         super(actor, options);
         this.actor = actor;
         this._realtimeSync = false;
@@ -76,7 +81,7 @@ class HiddenItemsPopup extends FormApplication {
 
     static get defaultOptions() {
         return foundry.utils.mergeObject(super.defaultOptions, {
-            id: "hidden-items-popup",
+            // L'id sera injecté dynamiquement dans le constructeur pour chaque acteur
             title: game.i18n.localize("A-OMEGA.HiddenItems.Popup.title"),
             template: "modules/Hidden-Items/templates/popup.html",
             width: 400,
@@ -138,24 +143,14 @@ class HiddenItemsPopup extends FormApplication {
             ev.preventDefault();
             ev.stopPropagation();
             const itemId = ev.currentTarget.dataset.itemId;
-            const actorId = this.actor.id;
-            Hooks.once("updateActor", (actor, data, options, userId) => {
-                if (actor.id === actorId) this.render(true, {keepId: true});
-            });
             await HiddenItemsManager.hideItem(this.actor, itemId);
-            this.render(true, {keepId: true});
         });
         // Restaurer un objet (depuis la liste cachée)
         html.find(".show-item").click(async ev => {
             ev.preventDefault();
             ev.stopPropagation();
             const itemId = ev.currentTarget.dataset.itemId;
-            const actorId = this.actor.id;
-            Hooks.once("updateActor", (actor, data, options, userId) => {
-                if (actor.id === actorId) this.render(true, {keepId: true});
-            });
             await HiddenItemsManager.showItem(this.actor, itemId);
-            this.render(true, {keepId: true});
         });
     }
 
@@ -220,7 +215,8 @@ Hooks.on('renderActorSheet', (app, html, data) => {
             app._hiddenItemsPopup = new HiddenItemsPopup(app.actor, {parent: app});
             app._hiddenItemsPopup.render(true);
         } else {
-            app._hiddenItemsPopup.bringToTop();
+            app._hiddenItemsPopup.close();
+            app._hiddenItemsPopup = null;
         }
     });
     // Insérer le bouton juste avant le titre

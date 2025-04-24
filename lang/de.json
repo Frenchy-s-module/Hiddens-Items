@@ -20,7 +20,9 @@
         "Notifications": {
             "LibWrapperRequired": "Das Modul libWrapper ist erforderlich, damit Hidden Items ordnungsgemäß funktioniert. Bitte installieren und aktivieren Sie es.",
                 "ListCleared": "Die Liste der versteckten Gegenstände wurde geleert.",
-                "AlreadyHidden": "{itemName} ist bereits in der Liste der versteckten Gegenstände."
+                "AlreadyHidden": "{itemName} ist bereits in der Liste der versteckten Gegenstände.",
+                "ItemShown": "{itemName} wurde angezeigt.",
+                "ItemHidden": "{itemName} wurde versteckt."
             }
         }
     }

@@ -20,7 +20,9 @@
         "Notifications": {
             "LibWrapperRequired": "Modulen libWrapper krävs för att Hidden Items ska fungera korrekt. Installera och aktivera den.",
                 "ListCleared": "Listan över dolda föremål har rensats.",
-                "AlreadyHidden": "{itemName} finns redan i listan över dolda föremål."
+                "AlreadyHidden": "{itemName} finns redan i listan över dolda föremål.",
+                "ItemShown": "{itemName} har blitt visad.",
+                "ItemHidden": "{itemName} har blitt dold."
             }
         }
     }

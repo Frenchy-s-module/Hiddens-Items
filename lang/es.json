@@ -19,7 +19,9 @@
             "Notifications": {
             "LibWrapperRequired": "El módulo libWrapper es necesario para que Hidden Items funcione correctamente. Por favor, instálalo y actívalo.",
                 "ListCleared": "La lista de objetos ocultos ha sido borrada.",
-                "AlreadyHidden": "{itemName} ya está en la lista de objetos ocultos."
+                "AlreadyHidden": "{itemName} ya está en la lista de objetos ocultos.",
+                "ItemShown": "{itemName} ha sido mostrado.",
+                "ItemHidden": "{itemName} ha sido ocultado."
             }
         }
     }

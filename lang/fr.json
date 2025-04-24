@@ -21,7 +21,9 @@
         "Notifications": {
             "LibWrapperRequired": "Le module libWrapper est requis pour que Hidden Items fonctionne correctement. Veuillez l'installer et l'activer." ,
                 "ListCleared": "La liste des objets cachés a été effacée.",
-                "AlreadyHidden": "{itemName} est déjà dans la liste des objets cachés."
+                "AlreadyHidden": "{itemName} est déjà dans la liste des objets cachés.",
+                "ItemShown": "{itemName} a été affiché.",
+                "ItemHidden": "{itemName} a été caché."
             }
         }
     }
