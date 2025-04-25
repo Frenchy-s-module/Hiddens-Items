@@ -2,7 +2,7 @@
   "id": "Hidden-Items",
   "title": "Hidden Items",
   "description": "A Foundry VTT module that allows GMs to hide items from character sheets and manage them privately. Items can be easily hidden and revealed, with a convenient interface for managing hidden items. Perfect for secret items, quest objects, or any items that should be temporarily hidden from players.",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "compatibility": {
     "minimum": "12",
     "verified": "12"
@@ -19,6 +19,14 @@
     "scripts/hide-on-sheet.js"
   ],
   "styles": ["styles/main.css", "styles/popup.css"],
+  "dependencies": [
+    {
+      "name": "lib-wrapper",
+      "type": "module",
+      "requirements": true,
+      "minimumVersion": "1.10.0"
+    }
+  ],
   "languages": [
     {
       "lang": "en",
