@@ -6,7 +6,8 @@
     padding: 10px;
 }
 
-.hidden-items-section h3 {
+.hidden-section-header, /* <-- GARDER : Cible l'en-tête caché */
+.visible-section-header { /* <-- AJOUTER : Cible AUSSI l'en-tête visible */
     border-bottom: 2px solid #666;
     color: rgb(255, 255, 255);
     background: rgba(0, 0, 0, 0.7);
@@ -19,14 +20,16 @@
     border-radius: 3px;
 }
 
-.hidden-items-section h3 span {
+.hidden-section-header span { /* <-- MODIFIÉ : Cibler le span dans l'en-tête caché */
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.hidden-items-section h3 span::before {
-    content: '\f070';
+
+
+.hidden-section-header span::before { /* <-- Le sélecteur a été modifié */
+    content: '\f070'; /* Code unicode pour l'icône 'fa-eye-slash' */
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
     color: #ffd700;
@@ -49,38 +52,41 @@
     box-shadow: 0 0 5px rgba(0,0,0,0.3);
 }
 
-.hidden-items-section .item-list {
-    background: rgba(233, 175, 175, 0.9);
+.hidden-items-section .item-list { 
+    background: rgba(220, 220, 220, 0.5); 
     border-radius: 3px;
     padding: 5px;
 }
 
-.hidden-items-section .hidden-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px;
-    margin: 2px 0;
-    border: 1px solid #ddd;
+.hidden-items-section .item-row { /* <-- MODIFIÉ : Cibler la classe générique item-row */
+    display: flex; /* GARDER : Active Flexbox */
+    align-items: center; /* GARDER : Centre verticalement les éléments */
+    gap: 8px; /* <-- AJOUTER : Crée l'espacement entre les éléments (image, nom, contrôles) */
+    padding: 5px; /* Espace interne dans chaque ligne (pousse le contenu, y compris l'image) */
+    margin: 2px 0; /* Espacement entre les lignes */
+    border: 1px solid #ddd; /* Bordure de la ligne */
     border-radius: 3px;
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.8); /* Fond de la ligne */
 }
 
-.hidden-items-section .hidden-item:hover {
+.hidden-items-section .item-row:hover { /* <-- MODIFIÉ : Cibler la classe générique item-row au hover */
     background: rgba(255, 255, 255, 1);
     box-shadow: 0 0 5px rgba(0,0,0,0.2);
 }
 
-.hidden-items-section .item-name {
+.hidden-items-section .item-row .item-name { /* <-- MODIFIÉ : Cibler la classe item-name à l'intérieur d'une ligne d'objet */
     color: #111;
     flex-grow: 1;
     margin-right: 10px;
     text-shadow: 0 0 4px rgba(255, 255, 255, 0.8);
+    white-space: normal;
+    flex: 1 1 auto;
 }
 
-.hidden-items-section .item-controls {
+.hidden-items-section .item-row .item-controls { /* <-- MODIFIÉ : Cibler la classe item-controls à l'intérieur d'une ligne d'objet */
     display: flex;
-    gap: 5px;
+    gap: 5px; /* Espacement entre les boutons de contrôle */
+    align-items: center;
 }
 
 .item-toggle {
@@ -123,4 +129,35 @@
 
 .github-button i {
     margin-right: 5px;
+}
+
+.visible-section-header span::before {
+    content: '\f06e'; /* Code unicode pour l'icône 'fa-eye' (standard) */
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900; /* Poids pour la version solide de l'icône */
+    color: #ffd700; /* La même couleur jaune/doré */
+    margin-right: 8px; /* <-- AJOUTER : Ajoute un espace à droite de l'icône */
+}
+
+.hidden-items-section .item-row button { /* <-- NOUVEAU / MODIFIÉ : Cibler les boutons à l'intérieur d'une ligne d'objet */
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    background: none; /* ou la couleur de fond souhaitée */
+    border: none; /* ou la bordure souhaitée */
+    cursor: pointer;
+    /* Ajoutez ou assurez-vous d'avoir d'autres styles de bouton de base ici */
+    color: var(--hidden-popup-icon); /* Exemple d'une règle précédente */
+    border: 1px solid var(--hidden-popup-item-border); /* Exemple d'une règle précédente */
+    border-radius: 3px; /* Exemple d'une règle précédente */
+    margin-left: 2px; /* Si besoin d'une petite marge avant le groupe de contrôles (était en inline sur le LI) */
+}
+
+.hidden-items-section .item-row button:hover { /* <-- NOUVEAU / MODIFIÉ : Cibler les boutons au hover */
+    color: var(--hidden-popup-icon-hover); /* Exemple d'une règle précédente */
+    border-color: var(--hidden-popup-icon-hover); /* Exemple d'une règle précédente */
+    background: #f0f0f0; /* Exemple d'une règle précédente */
 }
