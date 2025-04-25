@@ -20,7 +20,12 @@
                 "VisibleLabel": "Synlige genstande",
                 "HiddenLabel": "Skjulte genstande",
                 "NoVisibleItems": "Ingen synlige genstande",
-                "NoHiddenItems": "Ingen skjulte genstande"
+                "NoHiddenItems": "Ingen skjulte genstande",
+                "onlyGM": "Kun SL kan skjule genstande.",
+                "dropError": "Kunne ikke tilføje denne genstande.",
+                "onlyItems": "Kun genstande kan tilføjes.",
+                "alreadyHidden": "Denne genstande er allerede skjult.",
+                "itemHidden": "Genstande \"{name}\" skjult med succes."
             },
             "Notifications": {
             "LibWrapperRequired": "Modulet libWrapper er påkrævet for at Hidden Items fungerer korrekt. Installer og aktiver det venligst.",

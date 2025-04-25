@@ -1,7 +1,36 @@
 const HiddenItemsManager = window.HiddenItemsManager;
 console.log('[Hidden-Items] popup.js chargé et exécuté');
 // Classe pour la popup de gestion des objets cachés
+// Classe pour la popup de gestion des objets cachés
 class HiddenItemsPopup extends FormApplication {
+    /**
+     * Synchronise la réduction/aggrandissement avec la fiche parente
+     */
+    minimize(options) {
+        const result = super.minimize(options);
+        if (this.options.parent) {
+            this.setPosition(options);
+        }
+        return result;
+    }
+    maximize(options) {
+        const result = super.maximize(options);
+        if (this.options.parent) {
+            this.setPosition(options);
+        }
+        return result;
+    }
+    /**
+     * Surveille les changements d'état de la fiche parente AU RENDU
+     */
+    render(force=false, options={}) {
+        if (this.options.parent && this.options.parent.minimized && !this.minimized) {
+            this.minimize();
+        } else if (this.options.parent && !this.options.parent.minimized && this.minimized) {
+            this.maximize();
+        }
+        return super.render(force, options);
+    }
     constructor(actor, options = {}) {
         // Crée un titre dynamique incluant le nom de l'acteur
         const dynamicTitle = `${game.i18n.localize("A-OMEGA.HiddenItems.Popup.title")} – ${actor.name}`;
@@ -143,6 +172,55 @@ class HiddenItemsPopup extends FormApplication {
 
     activateListeners(html) {
         super.activateListeners(html);
+
+        // Drag & drop natif Foundry sur la zone objets cachés
+        const droppable = html.find('.droppable-target');
+        if (droppable.length) {
+            // Visuel dragover
+            droppable.on('dragover', ev => {
+                ev.preventDefault();
+                droppable.addClass('droppable-hover');
+            });
+            droppable.on('dragleave', ev => {
+                droppable.removeClass('droppable-hover');
+            });
+            droppable.on('drop', async ev => {
+                ev.preventDefault();
+                droppable.removeClass('droppable-hover');
+                if (!game.user.isGM) return ui.notifications.warn(game.i18n.localize("A-OMEGA.HiddenItems.Popup.onlyGM"));
+                let data;
+                try {
+                    data = JSON.parse(ev.originalEvent.dataTransfer.getData('text/plain'));
+                } catch (e) {
+                    return ui.notifications.error(game.i18n.localize("A-OMEGA.HiddenItems.Popup.dropError"));
+                }
+                // Vérifie si c'est un Item
+                if (data.type !== 'Item' && data.type !== 'item') {
+                    return ui.notifications.error(game.i18n.localize("A-OMEGA.HiddenItems.Popup.onlyItems"));
+                }
+                // Récupère l'item depuis la source
+                let item;
+                if (data.pack) {
+                    item = await fromUuid(data.uuid);
+                } else if (data.actorId && data.data) {
+                    item = new CONFIG.Item.documentClass(data.data, {parent: this.actor});
+                } else if (data.uuid) {
+                    item = await fromUuid(data.uuid);
+                }
+                if (!item) return ui.notifications.error(game.i18n.localize("A-OMEGA.HiddenItems.Popup.dropError"));
+                // Vérifie si déjà présent
+                let hiddenData = HiddenItemsStorage.getHiddenItems(this.actor.id) || {};
+                if (hiddenData[item.id]) {
+                    return ui.notifications.warn(game.i18n.localize("A-OMEGA.HiddenItems.Popup.alreadyHidden"));
+                }
+                // Ajoute l'objet à HiddenItemsStorage
+                hiddenData[item.id] = item.toObject();
+                await HiddenItemsStorage.setHiddenItems(this.actor.id, hiddenData);
+                Hooks.callAll('hiddenItemsUpdated', this.actor.id, hiddenData);
+                this.render(true, {keepId:true});
+                ui.notifications.info(game.i18n.format("A-OMEGA.HiddenItems.Popup.itemHidden", {name: item.name}));
+            });
+        }
         // Cacher un objet (depuis la liste visible)
         html.find(".hide-item").click(async ev => {
             ev.preventDefault();
@@ -197,46 +275,54 @@ class HiddenItemsPopup extends FormApplication {
         });
     }
 
-    /** Positionner la popup à droite de la fiche personnage */
+    /** Positionner la popup intelligemment selon l’état de la fiche parente */
     setPosition(options = {}) {
-        super.setPosition(options);
-        if (this.options.parent && this.options.parent.position) {
-            const parentPos = this.options.parent.position;
-            this.element.css({
-                left: (parentPos.left + parentPos.width + 20) + "px",
-                top: parentPos.top + "px"
-            });
+        const parentApp = this.options.parent;
+        if (!parentApp) {
+            // S'il n'y a pas de parent, on laisse Foundry gérer ou on applique une position par défaut
+            return super.setPosition(options);
         }
-    }
 
-    /** Nettoyage des hooks à la fermeture de la popup */
-    async close(...args) {
-        if (this._hooks) {
-            this._hooks.forEach(hook => {
-                if (hook && typeof hook.name === 'string' && typeof hook.id === 'number') {
-                    Hooks.off(hook.name, hook.id);
-                    if (CONFIG.debug?.hiddenItems) {
-                        console.log(`[Hidden-Items] Désenregistrement du hook ${hook.name} (ID: ${hook.id})`);
-                    }
-                } else {
-                    if (CONFIG.debug?.hiddenItems) {
-                        console.warn("[Hidden-Items] Tentative de désenregistrement d'un hook invalide:", hook);
-                    }
-                }
-            });
-            this._hooks = null;
-            this._realtimeSync = false;
+        // Note : parentApp.position donne la position *actuelle* reportée par Foundry
+        // Il peut y avoir un léger décalage visuel juste après une action rapide comme minimiser
+        const parentPos = parentApp.position;
+        let targetLeft, targetTop;
+
+        if (parentApp.minimized) {
+            // --- Logique de positionnement si la fiche parente est minimisée (DOCK HORIZONTALEMENT À DROITE) ---
+            // On la place à droite de la fiche minimisée.
+            // On lit la largeur de l'élément HTML de la fiche parente pour sa taille réelle minimisée.
+            const minimizedParentWidth = parentApp.element ? parentApp.element.outerWidth() : 200; // Lire la largeur ou estimer
+            const horizontalGap = 5; // Petit espace horizontal entre les deux fenêtres
+
+            targetLeft = parentPos.left + minimizedParentWidth + horizontalGap; // Placer à droite de la fiche minimisée + espace
+            targetTop = parentPos.top; // Aligner en haut avec la fiche minimisée
+
+            if (CONFIG.debug?.hiddenItems) console.log(`[Hidden-Items] setPosition: Parent ${parentApp.appId} minimisé (Dock Horizontal). Position calculée: {top: ${targetTop}, left: ${targetLeft}}`);
+
+            // Applique la position calculée. IMPORTANT : Ne PAS passer les 'options' ici pour éviter les interférences
+            return super.setPosition({ left: targetLeft, top: targetTop }); // <-- MODIFIÉ : Retire ...options
+
+        } else {
+            // --- Logique de positionnement si la fiche parente n'est PAS minimisée (logique originale, à droite de la fiche agrandie) ---
+            targetLeft = parentPos.left + parentPos.width + 20; // 20px à droite de la fiche agrandie
+            targetTop = parentPos.top; // Aligner en haut avec la fiche agrandie
+
+            if (CONFIG.debug?.hiddenItems) console.log(`[Hidden-Items] setPosition: Parent ${parentApp.appId} maximisé. Position calculée: {top: ${targetTop}, left: ${targetLeft}}`);
+
+            // Applique la position calculée en fusionnant avec les options (utile lors du drag manuel de la popup agrandie)
+            return super.setPosition({ left: targetLeft, top: targetTop, ...options }); // <-- GARDER : Conserve ...options ici
         }
-        // Nettoyer la référence sur la fiche parente si elle existe
-        if (this.options?.parent && this.options.parent._hiddenItemsPopup === this) {
-            this.options.parent._hiddenItemsPopup = null;
-        }
-        return super.close(...args);
     }
 }
 
 // Hook pour ajouter le bouton 'Objets cachés' (cadenas) à gauche du titre de la fiche
 Hooks.on('renderActorSheet', (app, html, data) => {
+    if (!game.user.isGM) return;
+
+    // --- PATCH minimize/maximize via libWrapper ---
+
+    // --- FIN PATCH ---
     if (!game.user.isGM) return;
     // Trouver la barre d'en-tête de la fenêtre
     const $window = html.closest('.app');

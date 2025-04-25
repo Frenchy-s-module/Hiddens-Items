@@ -20,7 +20,13 @@
         "VisibleLabel": "Objets visibles",
         "HiddenLabel": "Objets cachés",
         "NoVisibleItems": "Aucun objet visible",
-        "NoHiddenItems": "Aucun objet caché"
+        "NoHiddenItems": "Aucun objet caché",
+        "onlyGM": "Seul le MJ peut cacher des objets.",
+        "dropError": "Impossible d’ajouter cet objet.",
+        "onlyItems": "Vous ne pouvez déposer que des objets.",
+        "alreadyHidden": "Cet objet est déjà caché.",
+        "itemHidden": "Objet « {name} » caché avec succès."
+
       },
       "Notifications": {
         "LibWrapperRequired": "Le module libWrapper est requis pour que Hidden Items fonctionne correctement. Veuillez l'installer et l'activer.",

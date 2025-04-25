@@ -20,7 +20,13 @@
             "VisibleLabel": "Sichtbare Gegenstände",
             "HiddenLabel": "Versteckte Gegenstände",
             "NoVisibleItems": "Keine sichtbaren Gegenstände",
-            "NoHiddenItems": "Keine versteckten Gegenstände"            
+            "NoHiddenItems": "Keine versteckten Gegenstände",
+            "onlyGM": "Nur SL kann Gegenstände verstecken.",
+            "dropError": "Kann diese Gegenstand nicht hinzufügen.",
+            "onlyItems": "Nur Gegenstände können hinzugefügt werden.",
+            "alreadyHidden": "Dieser Gegenstand ist bereits in der Liste der versteckten Gegenstände.",
+            "itemHidden": "Gegenstand \"{name}\" erfolgreich versteckt."
+            
         },
         "Notifications": {
             "LibWrapperRequired": "Das Modul libWrapper ist erforderlich, damit Hidden Items ordnungsgemäß funktioniert. Bitte installieren und aktivieren Sie es.",

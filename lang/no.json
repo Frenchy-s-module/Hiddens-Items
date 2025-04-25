@@ -20,7 +20,12 @@
                 "VisibleLabel": "Synlige objekter",
                 "HiddenLabel": "Skjulte objekter",
                 "NoVisibleItems": "Ingen synlige objekter",
-                "NoHiddenItems": "Ingen skjulte objekter"
+                "NoHiddenItems": "Ingen skjulte objekter",
+                "onlyGM": "Kun SL kan skjule objekter.",
+                "dropError": "Kunne ikke legge til denne objekter.",
+                "onlyItems": "Kun objekter kan legges til.",
+                "alreadyHidden": "Denne objekter er allerede skjult.",
+                "itemHidden": "Objekter \"{name}\" skjult med suksess."
             },
             "Notifications": {
             "LibWrapperRequired": "Modulen libWrapper er nødvendig for at Hidden Items skal fungere riktig. Vennligst installer og aktiver den.",

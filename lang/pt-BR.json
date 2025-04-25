@@ -20,7 +20,12 @@
             "VisibleLabel": "Itens visíveis",
             "HiddenLabel": "Itens ocultos",
             "NoVisibleItems": "Nenhum item visível",
-            "NoHiddenItems": "Nenhum item oculto"  
+            "NoHiddenItems": "Nenhum item oculto",
+            "onlyGM": "Apenas Mestre pode ocultar itens.",
+            "dropError": "Não pode adicionar este item.",
+            "onlyItems": "Apenas itens podem ser adicionados.",
+            "alreadyHidden": "Este item já está oculto.",
+            "itemHidden": "Item \"{name}\" ocultado com sucesso."
             
         },
         "Notifications": {

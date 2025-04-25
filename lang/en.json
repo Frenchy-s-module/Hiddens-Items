@@ -28,7 +28,12 @@
                 "VisibleLabel": "Visible items",
                 "HiddenLabel": "Hidden items",
                 "NoVisibleItems": "No visible items",
-                "NoHiddenItems": "No hidden items"
+                "NoHiddenItems": "No hidden items",
+                "onlyGM": "Only GM can hide items.",
+                "dropError": "Cannot add this item.",
+                "onlyItems": "Only items can be added.",
+                "alreadyHidden": "This item is already hidden.",
+                "itemHidden": "Item \"{name}\" hidden successfully."
             }
         }
     }

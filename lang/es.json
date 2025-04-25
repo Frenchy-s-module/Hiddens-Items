@@ -20,7 +20,12 @@
                 "VisibleLabel": "Objetos visibles",
                 "HiddenLabel": "Objetos ocultos",
                 "NoVisibleItems": "No hay objetos visibles",
-                "NoHiddenItems": "No hay objetos ocultos"
+                "NoHiddenItems": "No hay objetos ocultos",
+                "onlyGM": "Solo el DJ puede ocultar objetos.",
+                "dropError": "No se puede agregar este objeto.",
+                "onlyItems": "Solo se pueden agregar objetos.",
+                "alreadyHidden": "Este objeto ya está oculto.",
+                "itemHidden": "Objeto \"{name}\" ocultado con éxito."
             },
             "Notifications": {
             "LibWrapperRequired": "El módulo libWrapper es necesario para que Hidden Items funcione correctamente. Por favor, instálalo y actívalo.",

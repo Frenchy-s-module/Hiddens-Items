@@ -20,8 +20,13 @@
             "VisibleLabel": "Synliga objekt",
             "HiddenLabel": "Dolda objekt",
             "NoVisibleItems": "Inga synliga objekt",
-            "NoHiddenItems": "Inga dolda objekt"
-                       
+            "NoHiddenItems": "Inga dolda objekt",
+            "onlyGM": "Kun SL kan dölja föremål.",
+            "dropError": "Kan inte lägga till denna föremål.",
+            "onlyItems": "Kun föremål kan läggas till.",
+            "alreadyHidden": "Detta föremål är redan dold.",
+            "itemHidden": "Föremål \"{name}\" dold med framgång."
+            
         },
         "Notifications": {
             "LibWrapperRequired": "Modulen libWrapper krävs för att Hidden Items ska fungera korrekt. Installera och aktivera den.",

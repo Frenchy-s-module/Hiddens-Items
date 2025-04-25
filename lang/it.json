@@ -20,7 +20,12 @@
                 "VisibleLabel": "Oggetti visibili",
                 "HiddenLabel": "Oggetti nascosti",
                 "NoVisibleItems": "Nessun oggetto visibile",
-                "NoHiddenItems": "Nessun oggetto nascosto"
+                "NoHiddenItems": "Nessun oggetto nascosto",
+                "onlyGM": "Solo il GM può nascondere gli oggetti.",
+                "dropError": "Impossibile aggiungere questo oggetto.",
+                "onlyItems": "Solo gli oggetti possono essere aggiunti.",
+                "alreadyHidden": "Questo oggetto è già nascosto.",
+                "itemHidden": "Oggetto \"{name}\" nascosto con successo."
             },
             "Notifications": {
             "LibWrapperRequired": "Il modulo libWrapper è necessario affinché Hidden Items funzioni correttamente. Si prega di installarlo e attivarlo.",

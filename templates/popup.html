@@ -7,7 +7,7 @@
           <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{visibleLabel}}</span> {{!-- Span pour le label --}}
       </h3>
       {{!-- Liste des objets visibles : Utilise la classe générique item-list --}}
-      <ul class="item-list" style="padding:0; margin:0; list-style:none;">
+      <ul class="item-list droppable-target" data-droppable="true" style="padding:0; margin:0; list-style:none;">
         {{#if visibleItems.length}}
           {{#each visibleItems}}
           {{!-- Ligne d'objet visible : Utilise la classe générique item-row, retire les styles inline de layout --}}
@@ -47,7 +47,7 @@
         </button>
       </h3>
       {{!-- Liste des objets cachés : Utilise la classe générique item-list --}}
-      <ul class="item-list" style="padding:0; margin:0; list-style:none;">
+      <ul class="item-list droppable-target" data-droppable="true" style="padding:0; margin:0; list-style:none;">
         {{#if hiddenItems.length}}
           {{#each hiddenItems}}
           {{!-- Ligne d'objet caché : Utilise la classe générique item-row, retire les styles inline de layout --}}

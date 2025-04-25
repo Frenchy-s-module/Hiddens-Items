@@ -312,6 +312,63 @@ window.HiddenItemsManager = class HiddenItemsManager {
 }
 
 Hooks.once('init', () => {
+    // Vérification de libWrapper
+    if (!window.libWrapper) {
+        ui.notifications?.error(game.i18n.localize("A-OMEGA.HiddenItems.Notifications.LibWrapperRequired"));
+        return;
+    }
+
+    // Initialisation du manager et de l'API
+    HiddenItemsManager.initialize();
+
+    // --- PATCHES LIBWRAPPER UNIQUES ---
+    try {
+        libWrapper.register(
+            'Hidden-Items',
+            "ActorSheet.prototype.minimize",
+            async function (wrapped, ...args) {
+                const result = await wrapped.apply(this, args);
+                if (this._hiddenItemsPopup && this._hiddenItemsPopup.rendered) {
+                    if (CONFIG.debug?.hiddenItems) console.log(`[Hidden-Items] Init Patch minimize: appel minimize sur popup ${this._hiddenItemsPopup.appId}`);
+                    this._hiddenItemsPopup.minimize(args[0]);
+                }
+                return result;
+            },
+            'WRAPPER'
+        );
+        libWrapper.register(
+            'Hidden-Items',
+            "ActorSheet.prototype.maximize",
+            async function (wrapped, ...args) {
+                const result = await wrapped.apply(this, args);
+                if (this._hiddenItemsPopup && this._hiddenItemsPopup.rendered) {
+                    if (CONFIG.debug?.hiddenItems) console.log(`[Hidden-Items] Init Patch maximize: appel maximize sur popup ${this._hiddenItemsPopup.appId}`);
+                    this._hiddenItemsPopup.maximize(args[0]);
+                }
+                return result;
+            },
+            'WRAPPER'
+        );
+        libWrapper.register(
+            'Hidden-Items',
+            "ActorSheet.prototype.setPosition",
+            async function (wrapped, ...args) {
+                const result = await wrapped.apply(this, args);
+                if (this._hiddenItemsPopup && this._hiddenItemsPopup.rendered) {
+                    if (CONFIG.debug?.hiddenItems) console.log(`[Hidden-Items] Init Patch setPosition: appel setPosition sur popup ${this._hiddenItemsPopup.appId}`);
+                    this._hiddenItemsPopup.setPosition();
+                }
+                return result;
+            },
+            'WRAPPER'
+        );
+        if (CONFIG.debug?.hiddenItems) console.log('[Hidden-Items] Patches ActorSheet.prototype.* enregistrés dans init.');
+    } catch (e) {
+        console.error("[Hidden-Items] Erreur lors de l'enregistrement des patches ActorSheet.prototype.* dans init :", e);
+        if (CONFIG.debug?.hiddenItems) ui.notifications.error(`[Hidden-Items] Init Patching Error: ${e.message}`);
+    }
+    // --- FIN PATCHES LIBWRAPPER UNIQUES ---
+
     // Enregistrement du storage global pour les objets cachés
     game.settings.register(HiddenItemsStorage.MODULE_ID, HiddenItemsStorage.STORAGE_KEY, {
         name: "Objets cachés par acteur (stockage global)",
