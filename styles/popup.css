@@ -1,0 +1,138 @@
+/* Popup gestion objets cachés - style neutre et universel */
+:root {
+  --hidden-popup-bg: #f5f5f7;
+  --hidden-popup-border: #bbb;
+  --hidden-popup-title: #222;
+  --hidden-popup-section: #444;
+  --hidden-popup-item-bg: #fff;
+  --hidden-popup-item-border: #ccc;
+  --hidden-popup-text: #222;
+  --hidden-popup-icon: #666;
+  --hidden-popup-icon-hover: #111;
+}
+.hidden-items-popup {
+  background: var(--hidden-popup-bg);
+  border: 1.5px solid var(--hidden-popup-border);
+  color: var(--hidden-popup-text);
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  padding: 14px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(40,40,40,0.07);
+}
+.hidden-items-popup h2 {
+}
+.clear-hidden-items-btn {
+  margin-left: 8px;
+  background: none;
+  border: none;
+  padding: 0 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  border-radius: 4px;
+}
+.clear-hidden-items-btn:hover {
+  background: #ffeaea;
+}
+.clear-hidden-items-btn i {
+  color: #c00;
+  font-size: 1em;
+  transition: color 0.2s;
+}
+.clear-hidden-items-btn:hover i {
+  color: #a00;
+}
+.hidden-items-popup h2 {
+  color: var(--hidden-popup-title);
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--hidden-popup-border);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.hidden-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.hidden-item-row {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--hidden-popup-item-border);
+  background: var(--hidden-popup-item-bg);
+  padding: 6px 0;
+  gap: 8px;
+}
+.hidden-item-row img {
+  flex: 0 0 32px;
+  margin-right: 10px;
+  border: 1px solid var(--hidden-popup-item-border);
+  background: #eee;
+  border-radius: 3px;
+}
+.hidden-item-row span {
+  flex: 1 1 auto;
+  font-size: 1em;
+  white-space: normal;
+  color: var(--hidden-popup-text);
+}
+.hidden-item-row button,
+.visible-item-row button {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  color: var(--hidden-popup-icon);
+  border: 1px solid var(--hidden-popup-item-border);
+  border-radius: 3px;
+  padding: 0;
+  margin-left: 2px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1em;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+}
+.hidden-item-row button:hover,
+.visible-item-row button:hover {
+  color: var(--hidden-popup-icon-hover);
+  border-color: var(--hidden-popup-icon-hover);
+  background: #f0f0f0;
+}
+.hidden-item-row button:focus,
+.visible-item-row button:focus {
+  outline: 2px solid var(--hidden-popup-icon-hover);
+  outline-offset: 1px;
+}
+.hidden-item-row button i,
+.visible-item-row button i {
+  font-size: 18px;
+  color: inherit;
+}
+.icon-eye-visible {
+  color: #27ae60 !important; /* vert pour visible */
+}
+.icon-eye-hidden {
+  color: #c0392b !important; /* rouge pour caché */
+}
+
+.icon-eye-visible {
+  color: #39ff14;
+}
+.icon-eye-hidden {
+  color: #ff3333;
+}
+.hidden-item-row button.toggle-hidden:hover {
+  background: #39ff14;
+  color: #181818;
+}
+.icon-eye-visible:hover {
+  color: #181818 !important;
+}
+.icon-eye-hidden:hover {
+  color: #181818 !important;
+}

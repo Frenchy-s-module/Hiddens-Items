@@ -1,0 +1,82 @@
+<form class="hidden-items-popup">
+    <h2>{{popupTitle}}</h2>
+  
+    {{!-- Section Objets Visibles --}}
+    <div class="hidden-items-section"> {{!-- Utilisation potentielle d'une classe wrapper générique ou spécifique --}}
+      <h3 class="visible-section-header">
+          <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{visibleLabel}}</span> {{!-- Span pour le label --}}
+      </h3>
+      {{!-- Liste des objets visibles : Utilise la classe générique item-list --}}
+      <ul class="item-list droppable-target" data-droppable="true" style="padding:0; margin:0; list-style:none;">
+        {{#if visibleItems.length}}
+          {{#each visibleItems}}
+          {{!-- Ligne d'objet visible : Utilise la classe générique item-row, retire les styles inline de layout --}}
+          <li class="item-row">
+            {{!-- Image de l'objet --}}
+            <img src="{{img}}" width="32" height="32" style="vertical-align:middle;">
+  
+            {{!-- Nom de l'objet : Utilise la classe item-name, garde les styles de texte si besoin --}}
+            <span class="item-name" style="white-space:normal;">{{name}}</span>
+  
+            {{!-- Conteneur des contrôles : Utilise la classe item-controls, retire les styles inline de layout --}}
+            <div class="item-controls">
+              {{!-- Bouton pour masquer : Conserve la classe hide-item, retire les styles inline de layout/présentation --}}
+              <button type="button" class="hide-item" data-item-id="{{id}}" title="{{../visibleLabel}}">
+                <i class="fas fa-eye-slash icon-eye-hidden"></i> {{!-- Icône œil barré --}}
+              </button>
+            </div>
+          </li>
+          {{/each}}
+        {{else}}
+          {{!-- Message si aucun objet visible --}}
+          <li style="padding:1em;text-align:center;color:#888;">
+            {{noVisibleItemsLabel}}
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  
+    {{!-- Section Objets Cachés --}}
+    <div class="hidden-items-section"> {{!-- Utilisation potentielle d'une classe wrapper générique ou spécifique --}}
+      {{!-- En-tête des objets cachés : Utilise la classe hidden-section-header, styles inline potentiels si spécifiques à cet en-tête --}}
+      <h3 class="hidden-section-header" style="display:flex;align-items:center;justify-content:space-between;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">
+        <span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{hiddenLabel}}</span> {{!-- Span pour le label --}}
+        {{!-- Bouton "vider la liste" --}}
+        <button type="button" class="clear-hidden-items-btn" title="{{clearListLabel}}" style="background:none;border:none;width:32px;height:32px;min-width:0;min-height:0;padding:0;cursor:pointer;display:flex;align-items:center;justify-content:center;">
+          <i class="fas fa-trash" style="color:#c00;font-size:1em;"></i> {{!-- Icône poubelle --}}
+        </button>
+      </h3>
+      {{!-- Liste des objets cachés : Utilise la classe générique item-list --}}
+      <ul class="item-list droppable-target" data-droppable="true" style="padding:0; margin:0; list-style:none;">
+        {{#if hiddenItems.length}}
+          {{#each hiddenItems}}
+          {{!-- Ligne d'objet caché : Utilise la classe générique item-row, retire les styles inline de layout --}}
+          <li class="item-row">
+            {{!-- Image de l'objet --}}
+            <img src="{{img}}" width="32" height="32" style="vertical-align:middle;">
+  
+            {{!-- Nom de l'objet : Utilise la classe item-name, garde les styles de texte si besoin --}}
+            <span class="item-name" style="white-space:normal;">{{name}}</span>
+  
+            {{!-- Conteneur des contrôles : Utilise la classe item-controls, retire les styles inline de layout --}}
+            <div class="item-controls">
+              {{!-- Bouton pour afficher : Conserve la classe show-item, retire les styles inline de layout/présentation --}}
+              <button type="button" class="show-item" data-item-id="{{id}}" title="{{../hiddenLabel}}">
+                <i class="fas fa-eye icon-eye-visible"></i> {{!-- Icône œil --}}
+              </button>
+              {{!-- Bouton pour supprimer : Conserve la classe delete-hidden-item-btn, retire les styles inline de layout/présentation --}}
+              <button type="button" class="delete-hidden-item-btn" data-item-id="{{id}}" title="{{../deleteLabel}}">
+                <i class="fas fa-trash" style="color:#c00;font-size:1em;"></i> {{!-- Icône poubelle (style inline conservé car spécifique ici) --}}
+              </button>
+            </div>
+          </li>
+          {{/each}}
+        {{else}}
+          {{!-- Message si aucun objet caché --}}
+          <li style="padding:1em;text-align:center;color:#888;">
+            {{noHiddenItemsLabel}}
+          </li>
+        {{/if}}
+      </ul>
+    </div>
+  </form>

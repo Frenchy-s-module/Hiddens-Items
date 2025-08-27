@@ -1,0 +1,40 @@
+{
+    "A-OMEGA": {
+        "HiddenItems": {
+            "Title": "Skjulte Gjenstander (Kun SL)",
+            "HeaderButton":"Skjulte Gjenstander",
+            "deleteLabel": "Slett permanent",
+            "ConfirmDelete": {
+                "Title": "Slett Skjulte Gjenstander",
+                "Content": "Er du sikker på at du vil slette denne skjulte gjenstanden? Denne handlingen kan ikke angres."
+            },
+            "ClearList": "Tøm Liste",
+            "ConfirmClear": {
+                "Title": "Tøm Liste over Skjulte Gjenstander",
+                "Content": "Er du sikker på at du vil tømme listen over skjulte gjenstander? Denne handlingen kan ikke angres."
+            },
+            "Popup": {
+                "Hide": "Skjul",
+                "title": "Skjulte Gjenstander",
+                "Show": "Vis",
+                "VisibleLabel": "Synlige objekter",
+                "HiddenLabel": "Skjulte objekter",
+                "NoVisibleItems": "Ingen synlige objekter",
+                "NoHiddenItems": "Ingen skjulte objekter",
+                "onlyGM": "Kun SL kan skjule objekter.",
+                "dropError": "Kunne ikke legge til denne objekter.",
+                "onlyItems": "Kun objekter kan legges til.",
+                "alreadyHidden": "Denne objekter er allerede skjult.",
+                "itemHidden": "Objekter \"{name}\" skjult med suksess."
+            },
+            "Notifications": {
+            "LibWrapperRequired": "Modulen libWrapper er nødvendig for at Hidden Items skal fungere riktig. Vennligst installer og aktiver den.",
+                "ListCleared": "Listen over skjulte gjenstander har blitt tømt.",
+                "AlreadyHidden": "{itemName} er allerede i listen over skjulte gjenstander.",
+                "ItemShown": "{itemName} har blitt vist.",
+                "ItemHidden": "{itemName} har blitt skjult.",
+                "ItemDeleted": "Den skjulte gjenstanden har blitt slettet permanent."
+            }
+        }
+    }
+}

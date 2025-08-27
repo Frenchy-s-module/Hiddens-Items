@@ -1,0 +1,80 @@
+{
+  "id": "Hidden-Items",
+  "title": "Hidden Items",
+  "description": "A Foundry VTT module that allows GMs to hide items from character sheets and manage them privately. Items can be easily hidden and revealed, with a convenient interface for managing hidden items. Perfect for secret items, quest objects, or any items that should be temporarily hidden from players.",
+  "version": "1.3.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Shaz for Frenchy's Module"
+    }
+  ],
+  "scripts": [
+    "scripts/storage.js",
+    "scripts/main.js",
+    "scripts/popup.js",
+    "scripts/hide-on-sheet.js"
+  ],
+  "styles": ["styles/main.css", "styles/popup.css"],
+  "dependencies": [
+    {
+      "name": "lib-wrapper",
+      "type": "module",
+      "requirements": true,
+      "minimumVersion": "1.10.0"
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    },
+    {
+      "lang": "fr",
+      "name": "Français",
+      "path": "lang/fr.json"
+    },
+    {
+      "lang": "de",
+      "name": "Deutsch",
+      "path": "lang/de.json"
+    },
+    {
+      "lang": "da",
+      "name": "Dansk",
+      "path": "lang/da.json"
+    },
+    {
+      "lang": "it",
+      "name": "Italiano",
+      "path": "lang/it.json"
+    },
+    {
+      "lang": "es",
+      "name": "Español",
+      "path": "lang/es.json"
+    },
+    {
+      "lang": "no",
+      "name": "Norsk",
+      "path": "lang/no.json"
+    },
+    {
+      "lang": "sv",
+      "name": "Svenska",
+      "path": "lang/sv.json"
+    },
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json"
+    }
+  ],
+  "url": "https://github.com/Frenchy-s-module/Hiddens-Items",
+  "manifest": "https://github.com/Frenchy-s-module/Hiddens_Items/releases/download/V1.3.0/module.json",
+  "download": "https://github.com/Frenchy-s-module/Hiddens_Items/releases/download/V1.3.0/Hidden-Items.zip"
+}
